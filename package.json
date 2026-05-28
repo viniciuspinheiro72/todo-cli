@@ -1,0 +1,49 @@
+{
+  "name": "todo-cli",
+  "version": "0.1.0",
+  "description": "A terminal-native todo manager with priorities, due dates, tags, and projects — backed by SQLite with LRU cache",
+  "type": "module",
+  "bin": {
+    "todo": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "format": "prettier --write .",
+    "prepublishOnly": "pnpm build && pnpm test"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.0.0",
+    "date-fns": "^3.0.0",
+    "lru-cache": "^10.0.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/uuid": "^9.0.0",
+    "@vitest/coverage-v8": "^2.1.9",
+    "prettier": "^3.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^2.1.9"
+  },
+  "engines": {
+    "node": ">=22.5"
+  },
+  "license": "MIT",
+  "keywords": [
+    "todo",
+    "cli",
+    "terminal",
+    "productivity",
+    "sqlite",
+    "ddd"
+  ],
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}
