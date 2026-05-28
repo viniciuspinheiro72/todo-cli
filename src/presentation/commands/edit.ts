@@ -11,9 +11,9 @@ export function registerEdit(program: Command, todoRepo: TodoRepository, project
     .option('--title <title>', 'New title')
     .option('-d, --desc <description>', 'New description')
     .option('-p, --priority <level>', 'New priority: high, medium, low, none')
-    .option('--due <date>', 'New due date (YYYY-MM-DD), or "none" to clear')
+    .option('-D, --due <date>', 'New due date (YYYY-MM-DD), or "none" to clear')
     .option('-t, --tag <tags>', 'Replace tags (comma-separated)')
-    .option('--project <name>', 'New project, or "none" to clear')
+    .option('-P, --project <name>', 'New project, or "none" to clear')
     .action((id: string, opts: { title?: string; desc?: string; priority?: string; due?: string; tag?: string; project?: string }) => {
       new EditTodo(todoRepo, projectRepo).execute({
         id,

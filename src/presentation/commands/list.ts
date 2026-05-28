@@ -14,9 +14,9 @@ export function registerList(program: Command, todoRepo: TodoRepository): void {
     .option('-s, --status <status>', 'Filter by status: pending, done, all')
     .option('-p, --priority <level>', 'Filter by priority')
     .option('-t, --tag <tag>', 'Filter by tag')
-    .option('--project <name>', 'Filter by project')
-    .option('--due-before <date>', 'Filter by due date before YYYY-MM-DD')
-    .option('--overdue', 'Show only overdue todos')
+    .option('-P, --project <name>', 'Filter by project')
+    .option('-D, --due-before <date>', 'Filter by due date before YYYY-MM-DD')
+    .option('-o, --overdue', 'Show only overdue todos')
     .action((opts: { status?: string; priority?: string; tag?: string; project?: string; dueBefore?: string; overdue?: boolean }) => {
       const filter: TodoFilter = {}
       if (opts.status && opts.status !== 'all') filter.status = opts.status as StatusLevel

@@ -10,9 +10,9 @@ export function registerAdd(program: Command, todoRepo: TodoRepository, projectR
     .description('Add a new todo')
     .option('-d, --desc <description>', 'Description')
     .option('-p, --priority <level>', 'Priority: high, medium, low, none', 'none')
-    .option('--due <date>', 'Due date (YYYY-MM-DD)')
+    .option('-D, --due <date>', 'Due date (YYYY-MM-DD)')
     .option('-t, --tag <tags>', 'Comma-separated tags')
-    .option('--project <name>', 'Project name')
+    .option('-P, --project <name>', 'Project name')
     .action((title: string, opts: { desc?: string; priority: string; due?: string; tag?: string; project?: string }) => {
       const useCase = new CreateTodo(todoRepo, projectRepo)
       const todo = useCase.execute({
